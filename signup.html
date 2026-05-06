@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ТЕТ-А-ТЕТ — создать карточку</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="landing">
+    <div class="grain"></div>
+
+    <header class="top-bar">
+        <span class="seal">сезон I · MMXXVI</span>
+        <span class="dot">●</span>
+        <span class="meta">регистрация</span>
+        <span class="spacer"></span>
+        <a href="index.html" class="meta link-quiet">← к входу</a>
+    </header>
+
+    <main class="landing-stage">
+        <section class="title-block">
+            <div class="kicker">тет-а-тет</div>
+            <h1 class="masthead">
+                <span>создайте</span>
+                <span class="amp">/</span>
+                <span>карточку</span>
+            </h1>
+            <p class="lede">
+                карточка — ваша роль в кадре.<br/>
+                имя в титрах, рейтинг, история проб.
+            </p>
+            <div class="ornament">
+                <span class="orn-line"></span>
+                <span class="orn-mark">✕</span>
+                <span class="orn-line"></span>
+            </div>
+            <p class="manifesto">
+                <em>«стартовый рейтинг — 1200 во всех дисциплинах.</em><br/>
+                <em>дальше — ваше дело».</em>
+            </p>
+        </section>
+
+        <aside class="auth-card">
+            <div class="card-numeral">II</div>
+            <div class="auth-tabs">
+                <a class="auth-tab" href="index.html">войти</a>
+                <button class="auth-tab active">создать карточку</button>
+            </div>
+            <form class="auth-form" id="signup-form" autocomplete="off">
+                <label class="field">
+                    <span class="field-label">псевдоним (имя в титрах)</span>
+                    <input type="text" id="su-handle" maxlength="24" autocomplete="off" placeholder="например, l_kokovkin" />
+                </label>
+                <label class="field">
+                    <span class="field-label">e-mail</span>
+                    <input type="email" id="su-email" autocomplete="off" placeholder="you@example.com" />
+                </label>
+                <label class="field">
+                    <span class="field-label">пароль (от 4 символов)</span>
+                    <input type="password" id="su-password" autocomplete="off" />
+                </label>
+                <p class="form-error" id="su-error"></p>
+                <button type="submit" class="btn-stage">создать карточку →</button>
+            </form>
+            <p class="footnote">создавая карточку, вы соглашаетесь<br/>проигрывать достойно.</p>
+        </aside>
+    </main>
+
+    <footer class="bottom-bar">
+        <span>α-показ</span>
+        <span class="dot">●</span>
+        <span>без хронометра</span>
+        <span class="dot">●</span>
+        <span>с уважением к ошибке</span>
+        <span class="spacer"></span>
+        <span>© MMXXVI</span>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="lib-store.js"></script>
+    <script src="lib-store-supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

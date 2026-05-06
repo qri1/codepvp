@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ТЕТ-А-ТЕТ — карточка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cabinet">
+    <div class="grain"></div>
+
+    <header class="nav">
+        <a href="cabinet.html" class="nav-brand">тет-а-тет</a>
+        <nav class="nav-links">
+            <a href="cabinet.html" class="nav-link" data-route="cabinet">кадр</a>
+            <a href="archive.html" class="nav-link" data-route="archive">архив</a>
+            <a href="leaderboard.html" class="nav-link" data-route="leaderboard">табло</a>
+            <a href="rules.html" class="nav-link" data-route="rules">правила</a>
+            <a href="profile.html" class="nav-link" data-route="profile">карточка</a>
+        </nav>
+        <div class="nav-user">
+            <span class="user-name" id="nav-user-name">—</span>
+            <span class="user-rating" id="nav-user-rating">—</span>
+            <button class="nav-signout" id="nav-signout" title="выйти">⨯</button>
+        </div>
+    </header>
+
+    <main class="cabinet-stage">
+        <section class="page-head">
+            <h1 class="page-title">карточка</h1>
+            <p class="page-sub">ваше имя в титрах. редактируется без церемоний.</p>
+        </section>
+
+        <article class="profile-grid">
+            <div class="profile-portrait">
+                <div class="portrait-frame" id="portrait-frame">
+                    <div class="portrait-mark" id="portrait-mark">—</div>
+                </div>
+                <div class="portrait-meta">
+                    <div class="portrait-handle" id="portrait-handle">—</div>
+                    <div class="portrait-email" id="portrait-email">—</div>
+                </div>
+            </div>
+
+            <form class="profile-form" id="profile-form" autocomplete="off">
+                <label class="field">
+                    <span class="field-label">псевдоним</span>
+                    <input type="text" id="pf-handle" maxlength="24" />
+                </label>
+                <label class="field">
+                    <span class="field-label">короткая подпись</span>
+                    <input type="text" id="pf-bio" maxlength="120" placeholder="одна строка о себе" />
+                </label>
+                <p class="form-error" id="pf-error"></p>
+                <p class="form-ok" id="pf-ok"></p>
+                <button type="submit" class="btn-stage">сохранить</button>
+            </form>
+
+            <div class="profile-ratings">
+                <h3 class="profile-ratings-title">рейтинги по дисциплинам</h3>
+                <ul class="profile-ratings-list" id="profile-ratings-list">
+                    <!-- JS -->
+                </ul>
+            </div>
+        </article>
+
+        <footer class="cabinet-footer">
+            <span>выйти из системы</span>
+            <span class="dot">●</span>
+            <button class="link-quiet" id="profile-signout">завершить сеанс</button>
+        </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="lib-store.js"></script>
+    <script src="lib-store-supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

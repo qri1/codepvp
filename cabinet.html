@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ТЕТ-А-ТЕТ — личная карточка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cabinet">
+    <div class="grain"></div>
+
+    <header class="nav">
+        <a href="cabinet.html" class="nav-brand">тет-а-тет</a>
+        <nav class="nav-links">
+            <a href="cabinet.html" class="nav-link" data-route="cabinet">кадр</a>
+            <a href="archive.html" class="nav-link" data-route="archive">архив</a>
+            <a href="leaderboard.html" class="nav-link" data-route="leaderboard">табло</a>
+            <a href="rules.html" class="nav-link" data-route="rules">правила</a>
+            <a href="profile.html" class="nav-link" data-route="profile">карточка</a>
+        </nav>
+        <div class="nav-user">
+            <span class="user-name" id="nav-user-name">—</span>
+            <span class="user-rating" id="nav-user-rating">—</span>
+            <button class="nav-signout" id="nav-signout" title="выйти">⨯</button>
+        </div>
+    </header>
+
+    <main class="cabinet-stage">
+        <section class="hero">
+            <div class="hero-left">
+                <div class="hero-label" id="hero-subject-label">показатель · математика</div>
+                <div class="hero-rating" id="hero-rating">1200</div>
+                <div class="hero-delta" id="hero-delta">±0 за неделю</div>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-right">
+                <div class="record">
+                    <div class="record-cell">
+                        <div class="record-num" id="rec-wins">0</div>
+                        <div class="record-lbl">побед</div>
+                    </div>
+                    <div class="record-cell">
+                        <div class="record-num" id="rec-losses">0</div>
+                        <div class="record-lbl">поражений</div>
+                    </div>
+                    <div class="record-cell">
+                        <div class="record-num" id="rec-streak">0</div>
+                        <div class="record-lbl">подряд</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block">
+            <div class="block-header">
+                <span class="block-numeral">I</span>
+                <h2>выбор дисциплины</h2>
+                <span class="block-rule"></span>
+            </div>
+            <div class="subjects" id="subjects-grid">
+                <!-- заполняется JS -->
+            </div>
+            <p class="block-caption">пока в кадре только информатика. остальные дисциплины — следующим сезоном.</p>
+        </section>
+
+        <section class="block">
+            <div class="block-header">
+                <span class="block-numeral">II</span>
+                <h2>выйти на сцену</h2>
+                <span class="block-rule"></span>
+            </div>
+            <button class="cta-duel" id="find-match">
+                <span class="cta-line">найти соперника</span>
+                <span class="cta-meta">две жизни · до трёх кадров</span>
+            </button>
+        </section>
+
+        <section class="block">
+            <div class="block-header">
+                <span class="block-numeral">III</span>
+                <h2>последние дубли</h2>
+                <span class="block-rule"></span>
+            </div>
+            <ol class="archive-list" id="archive-list">
+                <li class="archive-empty">архив пуст. начните первую дуэль.</li>
+            </ol>
+        </section>
+
+        <footer class="cabinet-footer">
+            <span>играя, вы соглашаетесь</span>
+            <span class="dot">●</span>
+            <span>не молчать без причины</span>
+            <span class="dot">●</span>
+            <span>не сдаваться без боя</span>
+        </footer>
+    </main>
+
+    <div class="mm-overlay" id="mm-overlay">
+        <div class="mm-content">
+            <div class="mm-pulse"></div>
+            <div class="mm-text">поиск соперника</div>
+            <div class="mm-sub">подбираем по силе и предмету</div>
+            <div class="mm-elapsed" id="mm-elapsed">00:00</div>
+            <button class="mm-cancel" id="mm-cancel">отменить</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="lib-store.js"></script>
+    <script src="lib-store-supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

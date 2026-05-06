@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ТЕТ-А-ТЕТ — табло</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cabinet">
+    <div class="grain"></div>
+
+    <header class="nav">
+        <a href="cabinet.html" class="nav-brand">тет-а-тет</a>
+        <nav class="nav-links">
+            <a href="cabinet.html" class="nav-link" data-route="cabinet">кадр</a>
+            <a href="archive.html" class="nav-link" data-route="archive">архив</a>
+            <a href="leaderboard.html" class="nav-link" data-route="leaderboard">табло</a>
+            <a href="rules.html" class="nav-link" data-route="rules">правила</a>
+            <a href="profile.html" class="nav-link" data-route="profile">карточка</a>
+        </nav>
+        <div class="nav-user">
+            <span class="user-name" id="nav-user-name">—</span>
+            <span class="user-rating" id="nav-user-rating">—</span>
+            <button class="nav-signout" id="nav-signout" title="выйти">⨯</button>
+        </div>
+    </header>
+
+    <main class="cabinet-stage">
+        <section class="page-head">
+            <h1 class="page-title">табло</h1>
+            <p class="page-sub">первые места не выдаются — берутся.</p>
+            <div class="filter-bar" id="lb-filter">
+                <button class="filter-pill active" data-subject="cs">информатика</button>
+                <button class="filter-pill soon" data-subject="math" disabled>математика — скоро</button>
+                <button class="filter-pill soon" data-subject="phys" disabled>физика — скоро</button>
+                <button class="filter-pill soon" data-subject="chem" disabled>химия — скоро</button>
+            </div>
+        </section>
+
+        <ol class="lb-list" id="lb-list">
+            <!-- JS -->
+        </ol>
+
+        <footer class="cabinet-footer">
+            <span>сезон I · MMXXVI</span>
+            <span class="dot">●</span>
+            <span>демонстрационные данные смешаны с реальными</span>
+        </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="lib-store.js"></script>
+    <script src="lib-store-supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

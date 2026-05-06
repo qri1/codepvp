@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ТЕТ-А-ТЕТ — правила</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cabinet">
+    <div class="grain"></div>
+
+    <header class="nav">
+        <a href="cabinet.html" class="nav-brand">тет-а-тет</a>
+        <nav class="nav-links">
+            <a href="cabinet.html" class="nav-link" data-route="cabinet">кадр</a>
+            <a href="archive.html" class="nav-link" data-route="archive">архив</a>
+            <a href="leaderboard.html" class="nav-link" data-route="leaderboard">табло</a>
+            <a href="rules.html" class="nav-link" data-route="rules">правила</a>
+            <a href="profile.html" class="nav-link" data-route="profile">карточка</a>
+        </nav>
+        <div class="nav-user">
+            <span class="user-name" id="nav-user-name">—</span>
+            <span class="user-rating" id="nav-user-rating">—</span>
+            <button class="nav-signout" id="nav-signout" title="выйти">⨯</button>
+        </div>
+    </header>
+
+    <main class="cabinet-stage">
+        <section class="page-head">
+            <h1 class="page-title">правила</h1>
+            <p class="page-sub">пять страниц инструкции — для тех, кто читает между ними.</p>
+        </section>
+
+        <article class="rules-doc">
+            <section class="rule">
+                <span class="rule-num">I</span>
+                <div class="rule-body">
+                    <h3>формат</h3>
+                    <p>дуэль — это <em>два мушкетёра</em> по две жизни у каждого.
+                       проигравший раунд теряет жизнь. кто первым потерял обе —
+                       сложил шпагу. максимум три кадра.</p>
+                </div>
+            </section>
+
+            <section class="rule">
+                <span class="rule-num">II</span>
+                <div class="rule-body">
+                    <h3>раунд</h3>
+                    <p>один кадр — одна задача. перед каждым раундом — <em>отсчёт</em>
+                       три-два-один. побеждает тот, кто первым отправил верный ответ.
+                       неверный ответ не отнимает ничего, кроме времени. лимит — две минуты.</p>
+                </div>
+            </section>
+
+            <section class="rule">
+                <span class="rule-num">III</span>
+                <div class="rule-body">
+                    <h3>задачи</h3>
+                    <p>сезон I — <em>информатика</em>, школьный уровень 7–9 класс.
+                       источники: открытые банки <em>ФИПИ</em>, сайт <em>К. Полякова</em>,
+                       «<em>решу ОГЭ / ЕГЭ</em>». все задачи валидированы заранее,
+                       у каждой один короткий ответ. остальные дисциплины откроются
+                       в следующем сезоне.</p>
+                </div>
+            </section>
+
+            <section class="rule">
+                <span class="rule-num">IV</span>
+                <div class="rule-body">
+                    <h3>рейтинг</h3>
+                    <p>стартовый — 1200. после каждой дуэли пересчитывается по
+                       <em>elo-подобной</em> формуле: за победу над сильным даём больше,
+                       за поражение от слабого отнимаем больше. чистый счёт (3:0)
+                       премируется небольшой надбавкой.</p>
+                </div>
+            </section>
+
+            <section class="rule">
+                <span class="rule-num">V</span>
+                <div class="rule-body">
+                    <h3>тон</h3>
+                    <p>здесь не учат — здесь проверяют. сдаваться можно;
+                       молчать — нельзя. не оскорблять соперника, не пользоваться
+                       внешней помощью. остальное — на ваше усмотрение.</p>
+                </div>
+            </section>
+        </article>
+
+        <footer class="cabinet-footer">
+            <span>α-показ · правила могут меняться без объявления</span>
+        </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="lib-store.js"></script>
+    <script src="lib-store-supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
