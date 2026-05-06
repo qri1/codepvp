@@ -1023,12 +1023,27 @@ body.duel {
 }
 
 .task-body {
-    padding: 3.2rem 2.4rem;
+    padding: 2.4rem 2.4rem;
     font-family: var(--serif);
-    font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+    font-size: clamp(1.15rem, 2.1vw, 1.4rem);
     line-height: 1.55;
     text-align: center;
     border-bottom: 1px solid var(--ink);
+}
+
+.task-example {
+    margin-top: 0.8rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+}
+
+.task-example code {
+    color: var(--ink);
+    background: var(--bg);
+    padding: 0.18rem 0.4rem;
+    border: 1px solid rgba(26, 26, 26, 0.15);
 }
 
 .task-form {
