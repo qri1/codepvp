@@ -1542,6 +1542,30 @@ body.duel {
     color: var(--ink);
 }
 
+.profile-form-line {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem 0;
+    flex-wrap: wrap;
+}
+
+.form-cell {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.form-cell.win  { color: var(--accent); }
+.form-cell.loss { color: var(--ink-fade); }
+
+.form-empty {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1rem;
+}
+
 /* === DUEL FINAL === */
 
 .final-delta {

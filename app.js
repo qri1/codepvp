@@ -310,6 +310,56 @@
             </li>
         `).join('');
 
+        // Статистика и форма
+        const matches = window.store.loadMatches(me.email);
+        const wins = matches.filter(m => m.win).length;
+        const losses = matches.length - wins;
+        const winrate = matches.length ? Math.round(wins * 100 / matches.length) : 0;
+        const avgDelta = matches.length
+            ? Math.round(matches.reduce((a, m) => a + (m.delta || 0), 0) / matches.length)
+            : 0;
+        const stats = window.store.getStats(me.email, 'cs');
+
+        const statsList = $('#profile-stats-list');
+        if (statsList) {
+            statsList.innerHTML = `
+                <li class="profile-rating-row">
+                    <span class="pr-subj">всего матчей</span>
+                    <span class="pr-val">${matches.length}</span>
+                </li>
+                <li class="profile-rating-row">
+                    <span class="pr-subj">побед / поражений</span>
+                    <span class="pr-val">${wins} / ${losses}</span>
+                </li>
+                <li class="profile-rating-row">
+                    <span class="pr-subj">winrate</span>
+                    <span class="pr-val">${winrate}%</span>
+                </li>
+                <li class="profile-rating-row">
+                    <span class="pr-subj">средняя дельта</span>
+                    <span class="pr-val">${avgDelta > 0 ? '+' : ''}${avgDelta}</span>
+                </li>
+                <li class="profile-rating-row">
+                    <span class="pr-subj">серия (текущая)</span>
+                    <span class="pr-val">${Math.abs(stats.streak || 0)}</span>
+                </li>
+            `;
+        }
+
+        const formLine = $('#profile-form-line');
+        if (formLine) {
+            const last7 = matches.slice(0, 7);
+            if (last7.length) {
+                formLine.innerHTML = last7.map(m => `
+                    <span class="form-cell ${m.win ? 'win' : 'loss'}" title="${m.opponent} · ${m.score.my}:${m.score.opp}">
+                        ${m.win ? '◆' : '◇'}
+                    </span>
+                `).join('');
+            } else {
+                formLine.innerHTML = '<span class="form-empty">пока пусто</span>';
+            }
+        }
+
         const out = $('#profile-signout');
         if (out) out.addEventListener('click', () => {
             window.store.signOut();
