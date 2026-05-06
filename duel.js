@@ -768,22 +768,32 @@ json.dumps(__out_payload, ensure_ascii=False)
         if (data.load_error) {
             return 'ошибка загрузки кода:\n' + data.load_error.trim();
         }
-        const lines = [`прошло ${data.passed} из ${data.total} тестов`];
-        if (data.user_stdout && data.user_stdout.trim()) {
-            lines.push('\nваш print():\n' + data.user_stdout.trim());
-        }
-        // Показываем первый упавший тест (если есть)
-        const fail = data.results.find(r => !r.ok);
-        if (fail) {
+        const lines = [];
+        lines.push(`тесты: ${data.passed} из ${data.total} ${data.allOk ? '· все прошли' : ''}`);
+
+        // Краткий ряд ✓/✗ по всем тестам
+        const dots = data.results.map(r => r.ok ? '✓' : '✗').join(' ');
+        if (dots) lines.push(dots);
+
+        // Подробности по упавшим (до 3-х)
+        const fails = data.results.filter(r => !r.ok).slice(0, 3);
+        if (fails.length) {
             lines.push('');
-            lines.push('первая ошибка на:');
-            lines.push(`  solve(${fail.input_repr})`);
-            if (fail.is_error) {
-                lines.push(`  → исключение: ${fail.got}`);
-            } else {
-                lines.push(`  получено:  ${fail.got}`);
-                lines.push(`  ожидалось: ${fail.want}`);
+            for (const f of fails) {
+                lines.push(`  solve(${f.input_repr})`);
+                if (f.is_error) {
+                    lines.push(`    → исключение: ${f.got}`);
+                } else {
+                    lines.push(`    получено:  ${f.got}`);
+                    lines.push(`    ожидалось: ${f.want}`);
+                }
             }
+        }
+
+        if (data.user_stdout && data.user_stdout.trim()) {
+            lines.push('');
+            lines.push('вывод print():');
+            lines.push(data.user_stdout.trim());
         }
         return lines.join('\n');
     }

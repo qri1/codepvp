@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <!-- Прогреваем кэш Pyodide заранее, чтобы дуэль стартовала быстро -->
+    <link rel="preload" as="script" crossorigin href="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js">
+    <link rel="preload" as="fetch" type="application/wasm" crossorigin href="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.asm.wasm">
+    <link rel="preload" as="fetch" crossorigin href="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.asm.js">
+    <link rel="preload" as="fetch" crossorigin href="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/python_stdlib.zip">
 </head>
 <body class="cabinet">
     <div class="grain"></div>
