@@ -242,6 +242,7 @@
     function getProfileById() { return Promise.resolve(null); }
     function matchChannel() { return null; }
     function finishPvpMatch() { return Promise.resolve(false); }
+    function loadTaskPool() { return Promise.resolve([]); }
 
     // ---------- DEMO SEEDING ----------
     // Если стор пустой — посеять немного демо-юзеров, чтобы лидерборд не был мёртвым.
@@ -314,6 +315,7 @@
         },
         // online MM stubs
         findMatch, getMatch, getProfileById, matchChannel, finishPvpMatch,
+        loadTaskPool,
         _mode: 'local',
     };
 })();

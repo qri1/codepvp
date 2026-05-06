@@ -429,6 +429,20 @@
         });
     }
 
+    // Загрузить пул задач из БД (новый формат с tests). Возвращает [] если пусто.
+    async function loadTaskPool(subject, limit) {
+        const { data, error } = await sb
+            .from('tat_tasks_v2')
+            .select('id, tag, body, example, starter, tests')
+            .eq('subject', subject || 'cs')
+            .limit(limit || 100);
+        if (error) {
+            console.warn('[tat] loadTaskPool failed', error);
+            return [];
+        }
+        return data || [];
+    }
+
     async function finishPvpMatch(matchId, aScore, bScore) {
         const { data, error } = await sb.rpc('tat_finish_pvp_match', {
             p_match_id: matchId,
@@ -452,6 +466,8 @@
         currentSubject, setCurrentSubject,
         // online MM
         findMatch, getMatch, getProfileById, matchChannel, finishPvpMatch,
+        // tasks
+        loadTaskPool,
         _sb: sb,
         _mode: 'supabase',
     };

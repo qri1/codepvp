@@ -1024,6 +1024,25 @@ json.dumps(__out_payload, ensure_ascii=False)
         myRating = window.store.getRating(me.email, subject);
         if (els.myHandle) els.myHandle.textContent = me.handle;
 
+        // 3.5. Загружаем задачи из БД (если есть AI-сгенерённые) — иначе хардкод.
+        try {
+            const dbTasks = await window.store.loadTaskPool('cs', 200);
+            if (dbTasks && dbTasks.length >= 5) {
+                console.log(`[tat] загружено ${dbTasks.length} задач из tat_tasks_v2`);
+                // Перезаписываем глобальный пул TASKS на серверный.
+                TASKS.length = 0;
+                for (const t of dbTasks) TASKS.push({
+                    tag: t.tag,
+                    body: t.body,
+                    example: t.example,
+                    starter: t.starter,
+                    tests: t.tests,
+                });
+                // Перепикаем 5 раундов из обновлённого пула.
+                state.rounds = pickRoundTasks(5);
+            }
+        } catch (e) { console.warn('[tat] task pool load failed', e); }
+
         // 4а. Онлайн-режим: подгружаем матч, фигурируем соперника, подписываемся.
         if (ONLINE_MATCH_ID && window.store._mode === 'supabase') {
             try {
